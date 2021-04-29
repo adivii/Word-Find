@@ -47,6 +47,7 @@ char *getWordVertical(int n){
 
 char *reverse(char *str){
     //Buat fungsi untuk membalik string yang dimasukkan
+    return strrev(str);
 }
 
 bool searchVertical(char *str){
