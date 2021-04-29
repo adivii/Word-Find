@@ -43,6 +43,7 @@ int main()
 
 char *getWordVertical(int n){
     //Buat fungsi untuk mengambil string pada kolom ke-n
+    char *str;
 }
 
 char *reverse(char *str){
