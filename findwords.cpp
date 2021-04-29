@@ -62,4 +62,5 @@ bool searchHorizontal(char *str){
     //Lakukan pengecekan untuk setiap baris
     //Untuk setiap baris, lakukan pengecekan pada 2 kondisi, normal dan reverse
     //Gunakan strstr
+    char stringcheck[16];
 }
