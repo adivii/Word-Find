@@ -60,7 +60,10 @@ bool searchVertical(char *str){
     //Lakukan pengecekan untuk setiap kolom (dapatkan string dengan memanggil fungsi getWordVertical(kolom))
     //Untuk setiap kolom, lakukan pengecekan pada 2 kondisi, normal dan reverse
     //Gunakan strstr
-    char stringchek[16];
+    char strcheck[16];
+    for(int kolom=0 ; kolom<15 ; kolom++){
+    	strcheck = getWordVertical(kolom)
+	}
 }
 
 bool searchHorizontal(char *str){
