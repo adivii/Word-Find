@@ -44,16 +44,22 @@ int main()
 
 char *getWordVertical(int n){
     //Buat fungsi untuk mengambil string pada kolom ke-n
-    char str[16];
+    char *strambil;
     for(int i = 0;i<15;i++){
-        str[i] = words[i][n];
+        *(strambil+i) = words[i][n];
     }
-    return str;
+    return strambil;
 }
 
 char *reverse(char *str){
     //Buat fungsi untuk membalik string yang dimasukkan oleh user
-    return strrev(str);
+    char *strambil;
+    int j = (int) strlen(str);
+    for(int i = 0;i<(int) strlen(str);i++){
+    	*(strambil+i) = str[j];
+    	j--;
+	}
+	return strambil;
 }
 
 bool searchVertical(char *str){
