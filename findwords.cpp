@@ -43,10 +43,15 @@ int main()
 
 char *getWordVertical(int n){
     //Buat fungsi untuk mengambil string pada kolom ke-n
+    char str[16];
+    for(int i = 0;i<15;i++){
+        str[i] = words[i][n];
+    }
+    return str;
 }
 
 char *reverse(char *str){
-    //Buat fungsi untuk membalik string yang dimasukkan
+    //Buat fungsi untuk membalik string yang dimasukkan oleh user
     return strrev(str);
 }
 
@@ -55,6 +60,20 @@ bool searchVertical(char *str){
     //Lakukan pengecekan untuk setiap kolom (dapatkan string dengan memanggil fungsi getWordVertical(kolom))
     //Untuk setiap kolom, lakukan pengecekan pada 2 kondisi, normal dan reverse
     //Gunakan strstr
+    char strcheck[16];
+    for(int kolom=0 ; kolom<15 ; kolom++){
+    	strcheck = getWordVertical(kolom)
+	
+	check= strstr(strcheck,str);
+	if (check-strcheck >=0){
+		return true;
+		break
+	}
+	else{
+		continue;	
+	}
+	}
+		
 }
 
 bool searchHorizontal(char *str){
