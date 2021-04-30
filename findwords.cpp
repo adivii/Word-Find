@@ -31,6 +31,7 @@ int main()
     char word[16];
     int n;
     cin>>n;
+    cin.ignore(n,'\n');
     for (int i=0;i<n;i++){
         cin.getline(word,16,'\n');
         if (searchVertical(word) || searchHorizontal(word))
@@ -60,12 +61,13 @@ bool searchVertical(char *str){
     //Lakukan pengecekan untuk setiap kolom (dapatkan string dengan memanggil fungsi getWordVertical(kolom))
     //Untuk setiap kolom, lakukan pengecekan pada 2 kondisi, normal dan reverse
     //Gunakan strstr
-    char strcheck[16];
+    char *strcheck;
     for(int kolom=0 ; kolom<15 ; kolom++){
-    	*strcheck = *getWordVertical(kolom);
+    	strcheck = getWordVertical(kolom);
 	
         char *check = strstr(strcheck,str);
-        if (check-strcheck >=0){
+        char *checkreverse = strstr(reverse(strcheck),str);
+        if (check-strcheck >=0 || checkreverse-strcheck >=0){
             return true;
             break;
         }
