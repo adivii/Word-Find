@@ -62,18 +62,18 @@ bool searchVertical(char *str){
     //Gunakan strstr
     char strcheck[16];
     for(int kolom=0 ; kolom<15 ; kolom++){
-    	strcheck = getWordVertical(kolom)
+    	*strcheck = *getWordVertical(kolom);
 	
-	check= strstr(strcheck,str);
-	if (check-strcheck >=0){
-		return true;
-		break
+        char *check = strstr(strcheck,str);
+        if (check-strcheck >=0){
+            return true;
+            break;
+        }
+        else{
+            continue;	
+        }
 	}
-	else{
-		continue;	
-	}
-	}
-		
+    return false;
 }
 
 bool searchHorizontal(char *str){
