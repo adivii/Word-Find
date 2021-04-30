@@ -63,14 +63,15 @@ bool searchVertical(char *str){
     char strcheck[16];
     for(int kolom=0 ; kolom<15 ; kolom++){
     	strcheck = getWordVertical(kolom)
-	}
+	
 	check= strstr(strcheck,str);
-	if (check >= 0){
+	if (check-strcheck >=0){
 		return true;
 		break
 	}
 	else{
 		continue;	
+	}
 	}
 		
 }
