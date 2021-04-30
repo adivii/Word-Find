@@ -63,4 +63,22 @@ bool searchHorizontal(char *str){
     //Untuk setiap baris, lakukan pengecekan pada 2 kondisi, normal dan reverse
     //Gunakan strstr
     char stringcheck[16];
+    char *check, *checkreverse;
+    
+    for (int i = 0; i < 16; i++){
+		for (int j = 0; j < 16; j++){
+			stringcheck[i] = words[i][j];
+		}
+	//strstr(stringcheck,str)
+	check = strstr(stringcheck, str);
+	checkreverse = strstr(reverse(stringcheck), str);
+	
+		if (check > 0 || checkreverse > 0){
+			return check;
+			break;
+		}else{
+			continue;
+		}
+	}
+	return !check;
 }
