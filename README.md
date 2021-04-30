@@ -1,4 +1,8 @@
 # Word-Find
+Adiwijaya Satria Nusantara 	(2017051006)
+Kayla Atsila Ivanka 		(2017051008)
+Muhammad Mufid Sadzili 		(2017051011)
+
 Program ini bertujuan untuk melakukan pengecekan terhadap sekumpulan huruf secara horizontal dan vertical. Adapun fungsi yang digunakan dibagi menjadi empat yaitu reverse, getWordVertical, searchVertical, dan searchHorizontal.
 
 #Fungsi reverse
