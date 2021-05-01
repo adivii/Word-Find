@@ -1,108 +1,112 @@
 #include <iostream>
 #include <cstring>
-#include <algorithm>
-
 using namespace std;
-const int cols = 16, rows = 15;
 
-char words[rows][cols] = {"tgbwwinterwsesn",
-                            "aaunttmmhfoodnb",
-                            "jlwcqldzmpmvdmr",
-                            "asagmquwvvbsohi",
-                            "bwplotanadtpgnc",
-                            "rewngodjcpnatnk",
-                            "eeotwosbqharrsa",
-                            "azcgeswewnaknpb",
-                            "dinnerqodlwdcar",
-                            "onopkwmparktzcc",
-                            "qbfrogmamwpweey",
-                            "lqzqnnmrzjjsclg",
-                            "mosgzczetdbooto",
-                            "pdcrzmsngrdnrpz",
-                            "ohnkzwaterjgtra"};
+const int rows = 15, cols = 16;
 
-char *getWordVertical(int n);
+char words[rows][cols]{
+    "tgbwwinterwsesn",
+    "aaunttmmhfoodnb",
+    "jlwcqldzmpmvdmr",
+    "asagmquwvvbsohi",
+    "bwplotanadtpgnc",
+    "rewngodjcpnatnk",
+    "eeotwosbqharrsa",
+    "azcgeswewnaknpb",
+    "dinnerqodlwdcar",
+    "onopkwmparktzcc",
+    "qbfrogmamwpweey",
+    "lqzqnnmrzjjsclg",
+    "mosgzczetdbooto",
+    "pdcrzmsngrdnrpz",
+    "ohnkzwaterjgtra"
+};
+
 char *reverse(char *a);
-bool searchVertical(char *str);
-bool searchHorizontal(char *str);
+char *getWordVertical(int n);
+bool searchVertical(char *s);
+char *getWordHorizontal(int n);
+bool searchHorizontal(char *s);
 
+int main(){
 
-int main()
-{
-    char word[16];
     int n;
-    cin>>n;
-    cin.ignore(n,'\n');
+    char word[16];
+    cin >> n;
+    cin.ignore(1,'\n');
     for (int i=0;i<n;i++){
         cin.getline(word,16,'\n');
-        if (searchVertical(word) || searchHorizontal(word))
+        if (searchVertical(word) || searchHorizontal(word)){
             cout << "Ada\n";
-        else 
+        }else{
             cout << "Tidak Ada\n";
+    	}
     }
     return 0;
 }
 
+char *reverse(char *a){
+    //Buat fungsi untuk membalik string yang dimasukkan oleh user
+    static char kayla[16];
+	for(int i = 0;i<15;i++){
+		kayla[i] = a[14-i];
+	}
+	return kayla;
+}
+
 char *getWordVertical(int n){
-    //Buat fungsi untuk mengambil string pada kolom ke-n
-    char strambil[15];
+	static char strambil[15];
     for(int i = 0;i<15;i++){
         strambil[i] = words[i][n];
     }
-    
-    char *str = strambil;
-    return str;
+
+    return strambil;
 }
 
-char *reverse(char *a){
-    //Buat fungsi untuk membalik string yang dimasukkan oleh user
-    char *s = a;
-	reverse(s,s+15);
+bool searchVertical(char *s){
+    bool stat;
+	for(int i = 0;i < 16;i++){
+		char *strcek = getWordVertical(i);
+		char *cek = strstr(strcek,s);
+		char *cekbalik = strstr(reverse(strcek),s);
+
+		if(cek){
+			stat = true;
+			break;
+		}else if(cekbalik){
+            stat = true;
+            break;
+		}else{
+            stat = false;
+		}
+	}
+	return stat;
+}
+
+char *getWordHorizontal(int n){
+	char *string;
+    string = *(words+n);
+	char *s = string;
 	return s;
 }
 
-bool searchVertical(char *str){
-    //Buat fungsi untuk melakukan pengecekan terhadap keberadaan string str
-    //Lakukan pengecekan untuk setiap kolom (dapatkan string dengan memanggil fungsi getWordVertical(kolom))
-    //Untuk setiap kolom, lakukan pengecekan pada 2 kondisi, normal dan reverse
-    //Gunakan strstr
-    char *strcheck;
-    for(int kolom=0 ; kolom<15 ; kolom++){
-    	strcheck = getWordVertical(kolom);
-	
-        char *check = strstr(strcheck,str);
-        char *checkreverse = strstr(reverse(strcheck),str);
-        if (check > 0 || checkreverse > 0){
-            return true;
-            break;
-        }
-        else{
-            continue;	
-        }
-	}
-    return false;
-}
+bool searchHorizontal(char *s){
+    bool stat;
+	for(int i = 0;i < 16;i++){
+		char *strcek = getWordHorizontal(i);
 
-bool searchHorizontal(char *str){
-    //Buat fungsi untuk melakukan pengecekan terhadap keberadaan string str
-    //Lakukan pengecekan untuk setiap baris
-    //Untuk setiap baris, lakukan pengecekan pada 2 kondisi, normal dan reverse
-    //Gunakan strstr
-    char *stringcheck, *check, *checkreverse;
-    
-    for (int i = 0; i < 16; i++){
-	stringcheck = *(words+i);
-		
-	check = strstr(stringcheck, str);
-	checkreverse = strstr(reverse(stringcheck), str);
-	
-		//strstr(stringcheck,str)
-		if (check > 0 || checkreverse > 0){
-			return true;
+		char *cek = strstr(strcek,s);
+		char *cekbalik = strstr(reverse(strcek),s);
+
+		if(cek){
+			stat = true;
 			break;
+		}else if(cekbalik){
+            stat = true;
+            break;
 		}else{
-			continue;
+            stat = false;
 		}
 	}
-	return false;
+	return stat;
 }
