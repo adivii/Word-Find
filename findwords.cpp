@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include <algorithm>
 
 using namespace std;
 const int cols = 16, rows = 15;
@@ -21,7 +22,7 @@ char words[rows][cols] = {"tgbwwinterwsesn",
                             "ohnkzwaterjgtra"};
 
 char *getWordVertical(int n);
-char *reverse(char *str);
+char *reverse(char *a);
 bool searchVertical(char *str);
 bool searchHorizontal(char *str);
 
@@ -44,22 +45,20 @@ int main()
 
 char *getWordVertical(int n){
     //Buat fungsi untuk mengambil string pada kolom ke-n
-    char *strambil;
+    char strambil[15];
     for(int i = 0;i<15;i++){
-        *(strambil+i) = words[i][n];
+        strambil[i] = words[i][n];
     }
-    return strambil;
+    
+    char *str = strambil;
+    return str;
 }
 
-char *reverse(char *str){
+char *reverse(char *a){
     //Buat fungsi untuk membalik string yang dimasukkan oleh user
-    char *strambil;
-    int j = (int) strlen(str);
-    for(int i = 0;i<(int) strlen(str);i++){
-    	*(strambil+i) = str[j];
-    	j--;
-	}
-	return strambil;
+    char *s = a;
+	reverse(s,s+15);
+	return s;
 }
 
 bool searchVertical(char *str){
