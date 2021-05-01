@@ -72,7 +72,7 @@ bool searchVertical(char *str){
 	
         char *check = strstr(strcheck,str);
         char *checkreverse = strstr(reverse(strcheck),str);
-        if (check-strcheck >=0 || checkreverse-strcheck >=0){
+        if (check > 0 || checkreverse > 0){
             return true;
             break;
         }
