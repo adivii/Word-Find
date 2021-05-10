@@ -1,3 +1,11 @@
+/*
+Adiwijaya Satria Nusantara (2017051006)
+Kayla Atsila Ivanka (2017051008)
+Muhammad Mufid Sadzili (2017051011)
+
+https://github.com/adivii/Word-Find.git
+*/
+
 #include <iostream>
 #include <cstring>
 using namespace std;
